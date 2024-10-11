@@ -1,0 +1,451 @@
+body {
+    /*Default settings*/
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+h1, h2, p {
+    color: white;
+}
+
+nav {
+    position: relative;
+    padding-top: 30px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    position: center;
+}
+
+/* Navigation Overlay */
+#nav-overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 100; /* Ensure it covers other elements */
+}
+
+/* Navigation Links */
+#navLinks {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    width: 250px; 
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease; /* Smooth transition */
+    z-index: 101; /* Above the overlay */
+}
+
+/* Show the sidebar */
+#navLinks.show {
+    left: 0; /* Slide in */
+}
+
+.cart-display.active {
+    display: block;
+  }
+  
+.cart {
+    position: relative;
+    color: white;
+    font-size: 20px;
+  }
+
+  .cart-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0; /* Stay on the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    z-index: 1000; /* Sit on top */
+}
+
+.cart-popup.show {
+    display: flex; /* Show the popup */
+}
+
+.cart-popup-content {
+    background: white; /* White background */
+    padding: 20px; /* Some padding */
+    border-radius: 8px; /* Rounded corners */
+    width: 300px; /* Width of the popup */
+}
+
+.cart-popup-header {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
+}
+
+.close-popup {
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 20px; /* Font size */
+}
+
+.cart-items {
+    margin-top: 10px; /* Margin above */
+    max-height: 200px; /* Max height */
+    overflow-y: auto; /* Scroll if overflow */
+}
+
+.cart-item {
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between elements */
+    padding: 5px 0; /* Padding above and below */
+}
+
+.cart-total {
+    font-weight: bold; /* Bold font */
+    margin-top: 10px; /* Margin above */
+}
+
+/* Hover effect for buttons */
+.add-to-cart:hover {
+    background-color: #0056b3;
+}
+  
+  .cart-total {
+    font-weight: bold;
+    padding-top: 20px;
+  }
+  
+  
+  .cart {
+    position: relative;
+    color: white;
+    font-size: 20px;
+  }
+  
+
+/* Menu toggle button (hamburger icon) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+
+}
+
+.nav-links .nav-links-links:hover{
+    color:rgb(116, 114, 114);
+}
+
+/* Sidebar for mobile */
+.nav-links.mobile {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen */
+    height: 100%;
+    width: 300px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease; /* Smooth sliding effect */
+    z-index: 1001;
+}
+
+/* Sidebar when active (ADDED) */
+.nav-links.mobile.show {
+    right: 0; /* Slide in when 'show' class is added */
+}
+
+/* Overlay (ADDED) */
+#nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it's behind the sidebar */
+}
+
+/* Overlay when active (ADDED) */
+#nav-overlay.show {
+    display: block; /* Show overlay when the sidebar opens */
+}
+
+/* Close button */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* Adjust color as needed */
+}
+
+/* Show the close button when the sidebar is active (ADDED) */
+.nav-links.mobile.active .close-btn {
+    display: block;
+}
+
+.logo h1 {
+    font-size: 30px;
+    margin: 0;
+    margin-right: 560px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+}
+
+.banner-section {
+    position: relative;
+    background-image: url('../Images/home_page_background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    margin-bottom: 90px;
+}
+.banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0, 0, 0, 0.11);
+    z-index: 1;
+}
+
+.banner-section .three-line-heading {
+    padding-top: 150px;
+    padding-left: 150px;
+    width: 300px;
+    word-wrap: break-word;
+    font-size: 40px;
+    color: white;
+    font-weight:bolder;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.banner-section p {
+    padding-left: 150px;
+    font-size: 20px;
+    font-weight:bolder;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.about-the-restaurant {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 130px;
+}
+
+.about-the-restaurant img {
+    height: 300px;
+    width: 300px;
+    margin-left: 90px;
+}
+
+.about-section .about-heading h2 {
+    margin-left: 775px;
+    font-size: 40px;
+}
+
+.about-section {
+    margin-bottom: 70px;
+}
+
+.about-the-restaurant .about-paragraph {
+    width: 800px;
+    line-height: 1.6;
+    margin-right: 50px;
+}
+
+.about-the-restaurant .about-paragraph p {
+    font-size: 20px;
+}
+
+/* Top Picks Section */
+.top_picks {
+    padding: 60px 30px; /* Adjusted padding */
+    margin-bottom: 80px;
+    text-align: center;
+  }
+  
+.top_picks_title h2 {
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+  
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    padding: 0 150px; /* Add horizontal padding to create space on left and right */
+  }
+  
+.card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+.card img {
+    width: 100%; /* Make the image take up the full width of the card */
+    height: 250px; /* Maintain the image's aspect ratio */
+    object-fit: cover; /* Crop the image to fit the card without stretching */
+    border-radius: 8px; /* Optional: add border radius to match the card's style */
+}
+  
+.card:hover {
+    transform: translateY(-10px); /* Add a slight hover effect */
+  }
+  
+.card-content h4 {
+    margin-bottom: 10px;
+  }
+  
+.card-content p {
+    color: black;
+}  
+
+.contacts {
+    margin-bottom: 50px;
+}
+
+.contacts p{
+    color: white;
+}
+
+.contacts .address {
+    font-size: 15px;
+    width: 130px;
+    word-wrap:break-word;
+    line-height: 30px;
+}
+
+.contacts iframe {
+    height: 90%;
+    width: 125%;
+}
+
+.contacts .address_map_hours .title h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.address_map_hours {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 150px;
+}
+
+.location_and_hours_contents {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the hamburger on mobile */
+    }    
+
+    .nav-links {
+        display: none; /* Hide the regular links on small screens */
+    }
+
+    .nav-links.mobile.active {
+        display: flex; /* Show nav links when active on mobile */
+    } /* Closing bracket was missing */
+
+    .hamburger-menu {
+        display: block; /* Display the hamburger menu on small screens */
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+        padding: 10px;
+    }
+
+    .banner-section .three-line-heading {
+        padding: 50px 20px; /* Adjust padding for smaller screens */
+        width: 90%; /* Ensure the text fits within the mobile view */
+        font-size: 24px; /* Reduce the text size for mobile */
+    }
+
+    .banner-section p {
+        padding: 0 20px; /* Adjust padding for better readability */
+        font-size: 16px; /* Make the paragraph text smaller */
+    }
+
+    .about-section .about-heading h2 {
+        margin-left: 0; /* Remove the large left margin for mobile */
+        text-align: center; /* Center the title on mobile */
+        font-size: 34px; /* Reduce the font size for smaller screens */
+        padding: 10px; /* Add some padding to create spacing */
+    }
+
+    .about-the-restaurant .about-paragraph {
+        width: 90%; /* Make the paragraph fit the mobile screen width */
+        margin: 10px 0; /* Add spacing above and below the paragraph */
+        text-align: center; /* Center the text for better alignment */
+        line-height: 1.5; /* Adjust line height for better readability */
+        padding: 0 10px; /* Add horizontal padding to prevent text from touching the edges */
+    }
+
+    .about-the-restaurant {
+        flex-direction: column; /* Stack the image and paragraph vertically */
+        align-items: center; /* Center align content */
+    }
+
+    .about-img, .about-paragraph {
+        margin: 20px 0; /* Add some spacing between elements */
+        width: 90%; /* Adjust width for mobile display */
+    }
+
+    .card-container {
+        padding: 0 20px; /* Reduce padding to fit better on smaller screens */
+    }
+
+    .address_map_hours {
+        flex-direction: column; /* Stack the map and contact info vertically */
+        gap: 30px; /* Reduce the gap between elements */
+    }
+
+    .contacts iframe {
+        width: 100%; /* Ensure the map fits within the mobile view */
+        height: 300px; /* Adjust the height for a better fit */
+    }
+}
