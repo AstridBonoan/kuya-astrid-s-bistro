@@ -1,0 +1,353 @@
+body {
+    /*Default settings*/
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+h1, h2, p {
+    color: white;
+}
+
+nav {
+    position: relative;
+    padding-top: 30px;
+    padding-right: 90px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    position: center;
+}
+
+.cart-display.active {
+    display: block;
+  }
+  
+.cart {
+    position: relative;
+    color: white;
+    font-size: 20px;
+  }
+
+  .cart-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0; /* Stay on the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    z-index: 1000; /* Sit on top */
+}
+
+.cart-popup.show {
+    display: flex; /* Show the popup */
+}
+
+.cart-popup-content {
+    background: white; /* White background */
+    padding: 20px; /* Some padding */
+    border-radius: 8px; /* Rounded corners */
+    width: 300px; /* Width of the popup */
+}
+
+.cart-popup-header {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
+}
+
+.close-popup {
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 20px; /* Font size */
+}
+
+.cart-items {
+    margin-top: 10px; /* Margin above */
+    max-height: 200px; /* Max height */
+    overflow-y: auto; /* Scroll if overflow */
+}
+
+.cart-item {
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between elements */
+    padding: 5px 0; /* Padding above and below */
+}
+
+.cart-total {
+    font-weight: bold; /* Bold font */
+    margin-top: 10px; /* Margin above */
+}
+
+
+/* Menu toggle button (hamburger icon) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+
+}
+
+.nav-links .nav-links-links:hover{
+    color:rgb(116, 114, 114);
+}
+
+/* Sidebar for mobile */
+.nav-links.mobile {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen */
+    height: 100%;
+    width: 300px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease; /* Smooth sliding effect */
+    z-index: 1001;
+}
+
+/* Sidebar when active (ADDED) */
+.nav-links.mobile.show {
+    right: 0; /* Slide in when 'show' class is added */
+}
+
+/* Overlay (ADDED) */
+#nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it's behind the sidebar */
+}
+
+/* Overlay when active (ADDED) */
+#nav-overlay.show {
+    display: block; /* Show overlay when the sidebar opens */
+}
+
+/* Close button */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* Adjust color as needed */
+}
+
+/* Show the close button when the sidebar is active (ADDED) */
+.nav-links.mobile.active .close-btn {
+    display: block;
+}
+
+.logo h1 {
+    font-size: 30px;
+    margin: 0;
+    margin-right: 600px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+}
+
+/* General styling for the food navigation */
+.food_nav {
+    padding: 10px;
+    text-align: center;
+    overflow-x:auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.food_nav_container {
+    display: flex;
+    justify-content: center;
+}
+
+.food_nav_links {
+    display: flex; /* Keeps links in a single row */
+    gap: 20px; /* Space between the links */
+
+}
+
+.nav-links-links {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Prevent text from breaking onto a new line */
+}
+
+.nav-links-links:hover {
+    color: #ddd; /* Change background color on hover */
+}
+
+.food_nav_links a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+} 
+
+/* Container styling to hold the cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+    gap: 40px; /* Space between the cards */
+    justify-content: center; /* Centers the grid content horizontally */
+    padding: 20px;
+    max-width: 900px; /* Set a maximum width for the grid */
+    margin: 0 auto; /* Center the grid within its parent container */
+}
+
+/* Styling each individual card */
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 450px; /* Set width to accommodate side-by-side layout */
+    display: flex;
+    padding: 10px;
+}
+
+/* Card content styling to arrange details and image side by side */
+.card-content {
+    display: flex;
+    flex-direction: row-reverse;    
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+}
+
+/* Image styling */
+.card-img {
+    margin-left: 10px; /* Adds space between the details and the image */
+}
+
+.card-img img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover; /* Keeps the aspect ratio of the image */
+    border-radius: 5px;
+}
+
+/* Card details styling */
+.card-details {
+    flex: 1;
+    text-align: left;
+    margin-right: 10px; /* Space between details and image */
+}
+
+/* Title and price styling */
+.card-details h4 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.card-details p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Add to Cart button styling */
+.add-to-cart {
+    background-color: #ff6600; /* Orange color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #e65c00; /* Darker orange on hover */
+}
+
+
+.title {
+    margin-left: 190px;
+    font-size: 20px;
+}
+
+.appetizers, .chicken, .vegetables, .pancit, .pork, .beef, .desserts, .fish{
+    margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the hamburger on mobile */
+    }    
+
+    .nav-links {
+        display: none; /* Hide the regular links on small screens */
+    }
+
+
+    .nav-links.mobile.active {
+        display: flex; /* Show nav links when active on mobile */
+    } /* Closing bracket was missing */
+
+    .hamburger-menu {
+        display: block; /* Display the hamburger menu on small screens */
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+        padding: 10px;
+    }
+
+    .food_nav {
+        overflow-x: auto; /* Enable horizontal scrolling for small screens */
+    }
+
+    .food_nav_links {
+        flex-wrap: nowrap; /* Ensure the links stay in a single row */
+        padding-left: 250px;
+        padding-right: 20px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr; /* Stack cards in a single column on small screens */
+    }
+
+    .card {
+        flex-direction: column; /* Arrange content in a column for better readability */
+        align-items: center; /* Center the card content on mobile */
+    }
+
+    .card-content {
+        flex-direction: row-reverse; /* Stack the image and details vertically */
+        text-align: center; /* Center text on mobile for a cleaner look */
+       
+    }
+
+    .card-img {
+        margin: 10px 0; /* Add space around the image on mobile */
+    }
+}
